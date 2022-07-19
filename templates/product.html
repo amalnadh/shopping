@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block metadescription %}
+
+
+        {{product.description|truncatewords:155}}
+
+    {% endblock %}
+
+
+        {% block title %}
+        {% if category %}
+                {{product.name}} - Shoppy
+        {% endif %}
+        {% endblock %}
+
+
+{% block content %}
+<div class="row my_product_row_cls">
+    <div class="mx_auto">
+<!--        <p><a href="{% url 'ecomsite:allproductCat' %}">Home</a> -->
+        | <a href="{{product.category.get_url}}" class="btn btn-secondary">{{product.category}}</a>| <strong>{{product.name}}</strong></p>
+
+    </div>
+    <div class="container">
+
+
+<br>
+
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+
+        <div style="min-width:18rem;">
+            <img  class="my_image" src="{{product.image.url}}" alt="{{product.name}}" width="200px" height="150px">
+        </div>
+
+    </div>
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div>
+            <h3 class="my_producttitle">{{product.name}}</h3>
+            <p>${{product.price}}</p>
+            <p class="my_title">Product Description</p>
+            <p class="text-justify my_producttxt">{{product.description}}</p>
+            {% if product.stock <= 0 %}
+            <p class="text-justify my_producttxt"><b>Out of Stock</b></p>
+            {% else %}
+            <a class="btn btn-primary" href="{% url 'cart_app:add_cart' product.id %}">Add to Cart</a>
+            {% endif %}
+        </div>
+
+
+        </div>
+</div>
+</div>
+    </div>
+{% endblock %}
