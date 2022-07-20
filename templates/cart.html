@@ -54,10 +54,11 @@ Cart
                         <a href="cart_item.product.get_absolute_url"><img src="{{cart_item.product.image.url}}" alt="img"  style="width:150px;height:150px" class="float-left rounded custom_image"></a>
                     </td>
                     <td class="text-left">
-                            {{cart_item.product.name}}<br>
+                            <b>{{cart_item.product.name}}</b><br>
                             SKU: {{cart_item.product_id}}<br>
                             Price: $ {{cart_item.product.price}}<br>
-                            Qty : {{cart_item.quantity}} x $ {{cart_item}}
+                            Qty : {{cart_item.quantity}} x $ {{cart_item.product.price}}<br>
+                                  {{cart_item.quantity}}   {{cart_item.product.name}}
 
                     </td>
                     <td>
@@ -106,7 +107,10 @@ Cart
                 </tbody>
           </table>
             <div class="mx_auto">
+                <a href="{% url 'ecomsite:allproductCat' %}" class="btn btn-success btn-block my_custom_button">Payment</a>
+
                 <a href="{% url 'ecomsite:allproductCat' %}" class="btn btn-info btn-block my_custom_button">Continue Shopping</a>
+
             </div>
 
         </div>

@@ -19,6 +19,7 @@ text-transform :uppercase;
 .my_footer{
 background-color:#99ccff;
 height:60px;
+position: fixed;
 
 }
 
@@ -26,6 +27,7 @@ height:60px;
 .my_footer p{
 padding-top:20px;
 font-size:14px;
+position: fixed;
 
 }
 /***category***/

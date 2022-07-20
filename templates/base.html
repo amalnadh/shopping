@@ -22,13 +22,14 @@
 
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <div class="container">
 {% include 'header.html' %}
 {% include 'nav.html' %}
 {% block content %}
 {% endblock %}
     </div>
+
 {% include 'footer.html' %}
 
 
